@@ -170,19 +170,21 @@ library.window = function(text)
     local gui = {}
 
     local elements = 0
-    gui.label = function(text)
+    gui.label = function(text,extrasize)
+        extrasize = extrasize or 0
+        
         local b = Instance.new("TextLabel",frame)
         b.LayoutOrder = 0
         b.TextScaled = true
         b.BackgroundTransparency = 1
         b.Text = tostring(text)
         b.TextColor3 = Color3.fromRGB(255,255,255)
-        b.Size = UDim2.new(0.96,0,0,elementsize)
+        b.Size = UDim2.new(0.96,0,0,elementsize+extrasize)
         b.FontFace = font
         b.BorderSizePixel = 0
         
         elements = elements + 1
-        frame.Size = frame.Size + UDim2.new(0,0,0,elementsize+3)
+        frame.Size = frame.Size + UDim2.new(0,0,0,elementsize+3+extrasize)
         
         local subgui = {}
         
